@@ -50,6 +50,7 @@ export const MOCK_POSTS: Post[] = [
     },
 ];
 
+
 export const MOCK_ITEMS: MarketplaceItem[] = [
     {
         id: 'm1',
@@ -63,6 +64,7 @@ export const MOCK_ITEMS: MarketplaceItem[] = [
         hostel_id: 'KP-6',
         is_sold: false,
         created_at: '1d ago',
+        images: ['https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800'],
     },
     {
         id: 'm2',
@@ -75,5 +77,27 @@ export const MOCK_ITEMS: MarketplaceItem[] = [
         location_context: 'campus',
         is_sold: false,
         created_at: '2d ago',
+        images: ['https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&q=80&w=800'],
+    },
+];
+
+export const MOCK_DATING_PROFILES: DatingProfile[] = [
+    {
+        id: 'd1',
+        user_id: 'u3',
+        user: { ...MOCK_PROFILES[0], full_name: 'Sarah', id: 'u3', avatar_url: 'https://i.pravatar.cc/150?u=sarah' },
+        bio: 'Coffee enthusiast and coding wizard. Looking for someone to debug my life.',
+        preferences: ['Coffee dates', 'Library study'],
+        images: ['https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800'],
+        is_active: true,
+    },
+    {
+        id: 'd2',
+        user_id: 'u4',
+        user: { ...MOCK_PROFILES[0], full_name: 'Mike', id: 'u4', avatar_url: 'https://i.pravatar.cc/150?u=mike' },
+        bio: 'Gym rat and foodie. Let\'s grab tacos!',
+        preferences: ['Gym', 'Food'],
+        images: ['https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800'],
+        is_active: true,
     },
 ];
