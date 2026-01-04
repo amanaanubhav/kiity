@@ -47,14 +47,19 @@ export interface MarketplaceItem {
     hostel_id?: string;
     is_sold: boolean;
     created_at: string;
+    images?: string[];
 }
 
 export interface DatingProfile {
+    id: string;
     user_id: string;
-    display_name: string;
-    age: number;
-    gender: string;
+    user?: Profile;
+    display_name?: string;
+    age?: number;
+    gender?: string;
     bio: string;
-    photos: string[];
+    photos?: string[];
+    images?: string[]; // Supporting both for compatibility
     is_active: boolean;
+    preferences: string[];
 }

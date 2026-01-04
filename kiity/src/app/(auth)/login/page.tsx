@@ -9,7 +9,7 @@ export default function LoginPage() {
             <Card className="w-full max-w-md border-none shadow-xl">
                 <CardHeader className="text-center space-y-2">
                     <div className="mx-auto size-12 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl mb-2">K</div>
-                    <CardTitle className="text-2xl">Welcome to Campus Connect</CardTitle>
+                    <CardTitle className="text-2xl">Welcome to Kiity</CardTitle>
                     <CardDescription>Exclusive to students and faculty of KIIT University.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">

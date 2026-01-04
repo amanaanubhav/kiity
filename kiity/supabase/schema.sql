@@ -14,6 +14,7 @@ create table public.profiles (
   year text, -- Nullable for profs/staff
   hostel_id text, -- Critical for marketplace context
   privacy_setting privacy_level default 'public',
+  verified_kiit_email boolean default false, -- Enforced by middleware but stored for UI
   avatar_url text,
   bio text,
   skills text[],
@@ -45,6 +46,7 @@ create table public.posts (
   -- Professional Fields
   is_opportunity boolean default false, -- Research/Internship
   mentions uuid[], -- Array of Profile IDs mentioned
+  mention_metadata jsonb, -- Store display names/avatars to avoid joins on render
   
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
@@ -60,6 +62,8 @@ create policy "Authors can insert" on posts for insert with check (auth.uid() = 
 create type item_context as enum ('hostel', 'campus');
 create type item_category as enum ('books', 'electronics', 'stationery', 'others', 'lost_found');
 
+create type item_condition as enum ('new', 'like_new', 'good', 'fair', 'poor');
+
 create table public.marketplace_items (
   id uuid default uuid_generate_v4() primary key,
   seller_id uuid references public.profiles(id) not null,
@@ -68,6 +72,7 @@ create table public.marketplace_items (
   price numeric, -- 0 for Lost & Found
   currency text default 'INR',
   category item_category not null,
+  condition item_condition default 'good',
   location_context item_context not null, 
   hostel_id text, -- Matches profile.hostel_id if context is hostel
   

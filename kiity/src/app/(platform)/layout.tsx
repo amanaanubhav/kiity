@@ -3,27 +3,25 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Search, ShoppingBag, MessageCircle, User, Menu, Bell } from 'lucide-react';
+import { Home, Search, ShoppingBag, MessageCircle, User, Bell, Briefcase, Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 // --- Navigation Config ---
 const NAV_ITEMS = [
     { label: 'Feed', href: '/feed', icon: Home },
-    { label: 'Search', href: '/search', icon: Search },
     { label: 'Market', href: '/marketplace', icon: ShoppingBag },
-    { label: 'Chat', href: '/messages', icon: MessageCircle },
+    { label: 'Bridge', href: '/professional', icon: Briefcase },
+    { label: 'Dating', href: '/match', icon: Heart },
     { label: 'Profile', href: '/u/me', icon: User },
 ];
-
-// --- Components ---
 
 function Header() {
     return (
         <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b bg-background/95 px-4 backdrop-blur md:hidden">
             <div className="flex items-center gap-2">
                 <div className="size-8 rounded-full bg-primary/20" /> {/* Logo Placeholder */}
-                <span className="text-lg font-bold tracking-tight">Project Kitty</span>
+                <span className="text-lg font-bold tracking-tight">Kiity</span>
             </div>
             <Button variant="ghost" size="icon">
                 <Bell className="size-5" />
@@ -38,7 +36,7 @@ function Sidebar() {
     return (
         <aside className="hidden w-64 flex-col border-r bg-card md:flex h-screen sticky top-0">
             <div className="flex h-14 items-center border-b px-6">
-                <span className="text-lg font-bold tracking-tight text-primary">Project Kitty</span>
+                <span className="text-lg font-bold tracking-tight text-primary">Kiity</span>
             </div>
             <nav className="flex-1 space-y-1 p-4">
                 {NAV_ITEMS.map((item) => {
@@ -62,8 +60,8 @@ function Sidebar() {
                 <div className="flex items-center gap-3 rounded-lg bg-secondary/50 p-3">
                     <div className="size-8 rounded-full bg-primary/20" />
                     <div className="flex flex-col text-xs">
-                        <span className="font-medium">User Student</span>
-                        <span className="text-muted-foreground">@user_student</span>
+                        <span className="font-medium">Alex Chen</span>
+                        <span className="text-muted-foreground">@alex_1234</span>
                     </div>
                 </div>
             </div>
@@ -96,7 +94,7 @@ function BottomNav() {
     );
 }
 
-export function MainLayout({ children }: { children: React.ReactNode }) {
+export default function PlatformLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="flex min-h-screen bg-background text-foreground">
             <Sidebar />

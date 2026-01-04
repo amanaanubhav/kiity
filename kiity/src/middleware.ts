@@ -51,8 +51,8 @@ export async function middleware(request: NextRequest) {
     // Note: This logic typically prevents signup, but if a user somehow exists with non-kiit email, we block them here too.
     if (user && user.email && !user.email.endsWith('@kiit.ac.in')) {
         // In a real app, you might sign them out or show an error page.
-        // await supabase.auth.signOut();
-        // return NextResponse.redirect(new URL('/login?error=invalid_domain', request.url));
+        await supabase.auth.signOut();
+        return NextResponse.redirect(new URL('/login?error=invalid_domain', request.url));
     }
 
     return response
